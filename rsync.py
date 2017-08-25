@@ -12,9 +12,10 @@ def sync(src, dest):
         if c in ['\n', '\r']:
             sys.stdout.write('rsync progress: %s\r' % line)
             sys.stdout.flush()
-            #print '\rrsync progress: %s' % line
             line = ''
         else:
             line += c
+    sys.stdout.write('\n')
+    sys.stdout.flush()
 
 sync(sys.argv[1], sys.argv[2])
